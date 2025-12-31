@@ -1,0 +1,23 @@
+//singup
+POST /auth/signup
+{
+ "username":"user@gmail.com",
+ "password":"12345",
+ "role":"USER"
+}
+
+//Login->otp
+
+POST /auth/login
+{
+ "username":"user@gmail.com",
+ "password":"12345"
+}
+
+//verify otp
+
+POST /auth/verify-otp
+{
+ "username":"user@gmail.com",
+ "otp":"123456"
+}

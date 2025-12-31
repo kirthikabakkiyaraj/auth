@@ -1,0 +1,13 @@
+const User = require('../models/user')
+
+module.exports = async (req, res, next) => {
+  const username = req.headers.username
+  const user = await User.findOne({ username })
+
+  if (!user || !user.isVerified) {
+    return res.status(403).json({ error: "OTP verification required" })
+  }
+
+  req.user = user
+  next()
+}
